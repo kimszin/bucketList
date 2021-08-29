@@ -18,7 +18,7 @@ const BucketList = (props) => {
           <ItemStyle 
             key={index} 
             color={list.completed? "orange":"aliceblue"}
-            onClick={() => {props.history.push('/detail/'+index+'/aliceblue');}}>
+            onClick={() => {props.history.push('/detail/'+index+'/'+list.completed);}}>
             {list.text}
           </ItemStyle>
         );

@@ -13,11 +13,11 @@ const Detail = (props) => {
     const bucket_list = useSelector((state)=>state.bucket.list);
     console.log(bucket_list, props);
     let bucket_index = parseInt(props.match.params.index);
-    let color = props.match.params.color;
+    let completed = props.match.params.completed;
 
     return (
         <div>
-            <h1>{bucket_list[bucket_index].text}({color=='aliceblue'?"미완료":"완료"})</h1>
+            <h1>{bucket_list[bucket_index].text}({completed === "false"?"미완료":"완료"})</h1>
             <ButtonGroup>
                 <Button 
                     //style={{color: "red"}}
@@ -28,14 +28,27 @@ const Detail = (props) => {
                 }}>
                 삭제하기
                 </Button>
-                <Button 
-                    color="primary"
-                    onClick={()=>{
-                    dispatch(updateBucketFB(bucket_index));
-                    props.history.goBack();
-                }}>
-                완료하기
-                </Button>
+                {
+                    completed === "false"
+                    ?
+                    <Button 
+                        color="primary"
+                        onClick={()=>{
+                        dispatch(updateBucketFB(bucket_index, completed));
+                        props.history.goBack();
+                    }}>
+                    완료하기
+                    </Button> 
+                    :
+                    <Button 
+                        color="primary"
+                        onClick={()=>{
+                        dispatch(updateBucketFB(bucket_index, completed));
+                        props.history.goBack();
+                    }}>
+                    완료 취소하기
+                    </Button> 
+                }
                 <Button 
                     onClick={()=>{
                     props.history.goBack();

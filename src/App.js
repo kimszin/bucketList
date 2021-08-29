@@ -115,7 +115,7 @@ class App extends React.Component {
                     />
                   }
                 />
-                <Route path="/detail/:index/:color" component={Detail}/>
+                <Route path="/detail/:index/:completed" component={Detail}/>
                 <Route render={(props) => (<NotFound history={props.history}/>)}/>
               </Switch>
             </Container>
@@ -133,7 +133,7 @@ class App extends React.Component {
 
 const Input = styled.div`
   max-width: 350px;
-  min-height: 10vh;
+  min-height: 1vh;
   background-color: #fff;
   padding: 16px;
   margin: 20px auto;
