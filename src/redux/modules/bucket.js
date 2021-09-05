@@ -81,7 +81,7 @@ export const addBucketFB = (bucket) => {
     }
 }
 
-export const updateBucketFB = (bucket, isComplete) => { // 파라미터 bucket은 index라고 해도 됨
+export const updateBucketFB = (bucket, isComplete) => { 
     return function (dispatch, getState) {
         const old_bucket_data = getState().bucket.list[bucket];
         console.log(old_bucket_data);
@@ -91,14 +91,14 @@ export const updateBucketFB = (bucket, isComplete) => { // 파라미터 bucket�
         }else{
             bucket_data = {...old_bucket_data, completed: false}; 
         }
-        // ↑ 원래는 전체 내용이 아닌 completed만 넘겨줘도 된다. 실습을 위해 전체 내용 담긴 변수 넘긴것
+        // ↑ 전체 내용이 아닌 completed만 넘겨줘도 된다.
 
         if(!bucket_data.id){
             return;
         }
         dispatch(isLoaded(false));
 
-        bucket_db.doc(bucket_data.id).update(bucket_data).then(docRef => { // docRef는 리스폰스 줄여서 res라고 해도됨
+        bucket_db.doc(bucket_data.id).update(bucket_data).then(docRef => { 
             dispatch(updateBucket(bucket, isComplete));
             dispatch(isLoaded(true));
         }).catch(error => {
@@ -107,7 +107,7 @@ export const updateBucketFB = (bucket, isComplete) => { // 파라미터 bucket�
     }
 }
 
-export const deleteBucketFB = (bucket) => { // 파라미터 bucket은 index라고 해도 됨
+export const deleteBucketFB = (bucket) => { 
     return function (dispatch, getState) {
         const old_bucket_data = getState().bucket.list[bucket];
 
@@ -121,7 +121,7 @@ export const deleteBucketFB = (bucket) => { // 파라미터 bucket은 index라�
             dispatch(isLoaded(true));
         }).catch(error => { 
             // delete 요청이 실패했으면(삭제가 안됬으면) then이 아니라 catch로 빠짐
-            // 혹은 then 안에서 고의적으로 에러를 내도 catch로 빠진다. 편하다.
+            // 혹은 then 안에서 고의적으로 에러를 내도 catch로 빠진다.
             console.log(error) 
         })
     }

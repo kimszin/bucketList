@@ -1,15 +1,10 @@
-// 리액트 패키지를 불러옵니다.
 import React from "react";
 import styled from "styled-components";
 
 import {useSelector, useDispatch} from "react-redux";
 
 const BucketList = (props) => {
-  console.log(props);
-  //const my_lists = props.list;
-
   const bucket_list = useSelector(state => state.bucket.list);
-  console.log(bucket_list)
 
   return (
     <ListStyle>

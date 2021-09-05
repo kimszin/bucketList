@@ -34,6 +34,5 @@ const HighLight = styled.div`
     transition-duration: 4s; 
     transition-delay: 4s;
 `;
-// transition : 어떤 속성이 변할 때 몇초 동안 변화를 일으킬지 설정. 위에서는 너비를 1초동안 변하게 하겠다는 뜻
 
 export default Progress;
