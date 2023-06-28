@@ -2,17 +2,17 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB97uCMyIGV-YYejZrFvH2iLMnodBQpPSc",
-    authDomain: "sparta-react-f1ebc.firebaseapp.com",
-    projectId: "sparta-react-f1ebc",
-    storageBucket: "sparta-react-f1ebc.appspot.com",
-    messagingSenderId: "160188775786",
-    appId: "1:160188775786:web:f907288257877eeca97913",
-    measurementId: "G-4995030EN5"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
 
 const firestore = firebase.firestore();
 
-export {firestore};
+export { firestore };
