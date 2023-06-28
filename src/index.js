@@ -9,7 +9,7 @@ import store from "./redux/configStore";
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/bucketList">
       <App />
     </BrowserRouter>
   </Provider>,
